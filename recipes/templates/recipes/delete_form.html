@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    
+    <form method="post">
+        {% csrf_token %}
+        <div class="del-temp">
+            <h2>Are you sure you want to delete <h2 style="color:tomato">'{{recipe}}?'</h2></h2>
+            <div class="button-container">
+             <button class="delete-link">Yes, delete it</button>
+             <a href="{% url 'account' %}" class="edit-link">Cancel</a>
+            </div>
+        </div>
+        
+    </form>
+
+{% endblock %}

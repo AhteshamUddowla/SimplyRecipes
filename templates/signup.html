@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+  
+ {% block content %}
+    <!-- HTML content -->
+    <div class="container">
+      <div class="signup-form">
+      
+        <h2>Sign Up</h2>
+        <form action="" method="post">
+          {% csrf_token %}
+          {% for field in form %}
+              {{field.label}}
+              {{field}}
+
+              {% for error in field.errors %}
+                 <p style="color: red;">{{error}}</p>
+              {% endfor %}
+          {% endfor %}
+          <input type="submit" value="Sign Up">
+          <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+        </form>
+      </div>
+      <div class="signup-image">
+        <img src="{% static 'recipes.png' %}" alt="Signup Image">
+      </div>
+    </div>
+  
+{% endblock %}

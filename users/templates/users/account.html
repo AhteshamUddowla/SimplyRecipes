@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+<main class="page">
+	<section id="my-info">
+		<div class="card">
+			<a href="{% url 'edit-account' profile.id %}" class="edit-button">Edit Profile</a>
+			<img class="profile-pic" src="{{profile.profile_image.url}}" alt="Profile Picture">
+			<p><b>Name:</b> {{profile.name}}</p>
+			<p><b>Username:</b> {{profile.username}}</p>
+			<p><b>Email:</b> {{profile.email}}</p>
+			<p><b>Bio:</b> {{profile.bio}}</p>
+			
+			
+		</div>
+	</section>
+	<section id="my-recipes">
+		<h2>My Recipes</h2>
+		{% for recipe in recipes %}
+			<a href="{% url 'recipe' recipe.id %}" class="recipe">
+				
+					<img src="{{recipe.recipe_image.url}}" alt="{{recipe.title}}">
+					<div class="recipe-info">
+						<h5>{{recipe.title}}</h5>
+						<p class="date">Created on: {{recipe.created}}</p>
+						<!-- <p class="description">This delicious stir fry is packed with flavor and heat!</p> -->
+						<div class="buttons">
+							<form action="{% url 'edit-recipe' recipe.id  %}" >
+								<button>Edit</button>
+							</form>
+							<form action="{% url 'delete-recipe' recipe.id %}" >	
+								<button>Delete</button>
+							</form>
+							
+						</div>
+						
+					</div>	
+			</a>			
+		{% endfor %}
+	</section>
+
+</main>
+
+	
+{% endblock %}
