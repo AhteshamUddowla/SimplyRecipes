@@ -12,6 +12,7 @@ class Recipes(models.Model):
     prep_time = models.IntegerField()
     cook_time = models.IntegerField()
     serving = models.IntegerField()
+    tags = models.CharField(max_length=500, null=True, blank=True)
     instructions = models.TextField(max_length=5000)
     ingredients = models.TextField(max_length=5000)
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True, editable=False)
@@ -21,7 +22,7 @@ class Recipes(models.Model):
         return self.title
     
 class Tag(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True, editable=False)
     created = models.DateTimeField(auto_now_add=True)
 

@@ -7,7 +7,7 @@ class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipes
         fields = ['title', 'description', 'recipe_image', 'prep_time', 
-                  'cook_time', 'serving', 'instructions', 'ingredients']
+                  'cook_time', 'serving', 'tags', 'instructions', 'ingredients']
         # To remove clear checkbox of ImageField from form use the following line
         # Here 'form-control-file' is a Bootstrap class
         widgets = {

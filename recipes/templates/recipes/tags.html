@@ -6,10 +6,12 @@
          <section class="tags-wrapper">
           {% for tag, cn in tag_list %}
           <!-- single tag -->
+           
               <a href="{% url 'recipes' %}?search={{tag}}" class="tag">
                 <h5>{{tag}}</h5>
                 <p>{{cn}} recipe</p>
               </a>
+            
             <!-- end of single tag -->
           {% endfor %}
 

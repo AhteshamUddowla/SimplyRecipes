@@ -1,34 +1,32 @@
 from django.shortcuts import render, redirect
 from .models import Recipes, Tag
 from .forms import RecipeForm
-from django.db.models import Q
-
+from .utils import searchRecipes, tagCount, tags
 
 # Create your views here.
 def recipes(request):
-    search = ''
-    if request.GET.get('search'):
-        search = request.GET.get('search')
-    tags = Tag.objects.all()
+    recipes, tags, search = searchRecipes(request)
     
-    recipes = Recipes.objects.filter(
-        Q(title__icontains=search) | 
-        Q(description__icontains=search) 
-    )
-    
-    context = {'recipes': recipes, 'tags':tags}
+    context = {'recipes': recipes, 'tags':tags, 'search':search}
     return render(request, 'recipes/recipes.html', context)
 
 def recipe(request, pk):
     recipe = Recipes.objects.get(id=pk)
+
+    tags = []
+    if recipe.tags:
+        tags = recipe.tags.split(',')
+        tags = [tag.strip() for tag in tags]
+    tags = set(tags)
+
     instructions = recipe.instructions.split('.')
     ingredients = recipe.ingredients.split('.')
     context = {'recipe': recipe, 'instructions':instructions, 
-               'ingredients':ingredients}
+               'ingredients':ingredients, 'tags':tags}
 
     return render(request, 'recipes/recipe.html', context)    
 
-def create_recipe(request):
+def create_recipe(request):    
     profile = request.user.profile
     form = RecipeForm()
     
@@ -38,6 +36,7 @@ def create_recipe(request):
             recipe = form.save(commit=False)
             recipe.owner = profile
             recipe.save()
+            tags(request, recipe.tags)
             return redirect('recipes')
 
 
@@ -56,6 +55,8 @@ def edit_recipe_view(request, pk):
             recipe = form.save(commit=False)
             recipe.owner = profile
             recipe.save()
+            tags(request, recipe.tags)
+            
             return redirect('account')
 
     context = {'form':form}
@@ -74,21 +75,7 @@ def delete_recipe_view(request, pk):
 
 
 def tags_view(request):
-    tags = Tag.objects.all()
-    tag_count = []
-
-    for tag in tags:
-        tag_name = tag.name
-        recipes = Recipes.objects.filter(
-            Q(title__icontains=tag_name) | 
-            Q(description__icontains=tag_name) 
-        )
-        tag_count.append(recipes.count())
-
-    print(len(tag_count))
-    print(len(tags))
-    for tag, cn in zip(tags, tag_count):
-        print(tag, cn)
+    tags, tag_count = tagCount(request)
 
     tag_list = zip(tags, tag_count)
 

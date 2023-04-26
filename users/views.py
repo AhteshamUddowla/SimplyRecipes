@@ -37,7 +37,7 @@ def login_view(request):
             user = User.objects.get(username=username)
         except:
             messages.error(request, "Username doesn't exists")
-            return render(request, 'login')
+            return redirect('login')
 
         user = authenticate(request, username=username, password=password)
         

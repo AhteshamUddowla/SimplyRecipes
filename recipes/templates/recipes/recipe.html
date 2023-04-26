@@ -30,7 +30,14 @@
             <p>{{recipe.serving}} servings</p>
           </article>
         </div>
-        
+        <p class="recipe-tags">
+          {% if tags %}
+            Tags : 
+            {% for tag in tags %}
+              <a >{{tag}}</a>
+            {% endfor %}
+          {% endif %}
+        </p>
       </article>
     </section>
     <!-- content -->
