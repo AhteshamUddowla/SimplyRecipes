@@ -4,6 +4,7 @@
 
 {% block content %}
 
+<main class="page">
 <!-- HTML content -->
 <!-- <h1>Welcome Back to Recipe Website</h1> -->
 <div class="container">
@@ -17,13 +18,13 @@
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" placeholder="••••••••••••••••" required>
       <input type="submit" value="Sign In">
-      <p>Don't have an account yet? <a href="{% url 'register' %}">Sign up</a></p>
+      <p>Don't have an account yet? <a href="{% url 'register' %}" class="have">Sign up</a></p>
     </form>
   </div>
   <div class="signin-image">
     <img src="{% static 'recipes.png' %}" alt="Signin Image">
   </div>
 </div>
-
+</main>
 {% endblock %}
   

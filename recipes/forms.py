@@ -12,6 +12,9 @@ class RecipeForm(forms.ModelForm):
         # Here 'form-control-file' is a Bootstrap class
         widgets = {
             'recipe_image': FileInput(attrs={'class': 'form-control-file'}),
+            'description': forms.TextInput(attrs={'style': 'border: 1px solid #ccc;'}),
+            'instructions': forms.TextInput(attrs={'style': 'border: 1px solid #ccc;'}),
+            'ingredients': forms.TextInput(attrs={'style': 'border: 1px solid #ccc;'}),
         }
      
     def __init__(self, *args, **kwargs):

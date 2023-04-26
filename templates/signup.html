@@ -1,10 +1,11 @@
-{% extends 'main.html' %}
+{% extends 'main.html'%}
 
 {% load static %}
 
   
  {% block content %}
     <!-- HTML content -->
+<main class="page">
     <div class="container">
       <div class="signup-form">
       
@@ -20,12 +21,14 @@
               {% endfor %}
           {% endfor %}
           <input type="submit" value="Sign Up">
-          <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+          <p>Already have an account? <a href="{% url 'login' %}" class="have">Log in</a></p>
         </form>
       </div>
       <div class="signup-image">
         <img src="{% static 'recipes.png' %}" alt="Signup Image">
       </div>
     </div>
+
+</main>
   
 {% endblock %}

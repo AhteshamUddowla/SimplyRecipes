@@ -44,6 +44,5 @@ class ProfileForm(forms.ModelForm):
         # Here 'form-control-file' is a Bootstrap class
         widgets = {
             'profile_image': FileInput(attrs={'class': 'form-control-file'}),
-            # Username is not edit-able
-            # 'username': forms.TextInput(attrs={'disabled': 'disabled'})
+            'bio': forms.TextInput(attrs={'style': 'border: 1px solid #ccc;'}),
         }
