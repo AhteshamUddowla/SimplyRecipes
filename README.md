@@ -13,6 +13,10 @@
 ### Add Recipe Form
 <img width="446" alt="Screenshot 2023-04-26 192300" src="https://user-images.githubusercontent.com/86501763/234592111-895e195c-50f1-4909-8dcd-1c62d0a963f1.png">
 
+### Recipe Update Form
+<img width="470" alt="Screenshot 2023-04-26 192300" src="https://user-images.githubusercontent.com/86501763/234593511-18d62503-4f5d-407e-8db6-3fb3bbc22950.png">
+
+
 ### Recipes Tags
 <img width="716" alt="Screenshot 2023-04-26 192300" src="https://user-images.githubusercontent.com/86501763/234592313-af880c76-a113-46f5-a878-55326dc1d2b2.png">
 
@@ -21,6 +25,6 @@
 <img width="482" alt="Screenshot 2023-04-26 192300" src="https://user-images.githubusercontent.com/86501763/234592682-aedc7232-54b3-440c-93c1-445dd697ca8b.png">
 
 
-### Edit Account Section
+### Account Update Form
 <img width="665" alt="Screenshot 2023-04-26 192300" src="https://user-images.githubusercontent.com/86501763/234593018-c35de28b-e664-4fea-8259-1ad282fc9747.png">
 
