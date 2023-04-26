@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Recipes, Tag
 from .forms import RecipeForm
 from .utils import searchRecipes, tagCount, tags
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def recipes(request):
@@ -26,6 +27,7 @@ def recipe(request, pk):
 
     return render(request, 'recipes/recipe.html', context)    
 
+@login_required(login_url='login')
 def create_recipe(request):    
     profile = request.user.profile
     form = RecipeForm()
@@ -43,7 +45,7 @@ def create_recipe(request):
     context = {'form':form}
     return render(request, 'recipes/recipe_form.html', context)
 
-
+@login_required(login_url='login')
 def edit_recipe_view(request, pk):
     profile = request.user.profile
     recipe = Recipes.objects.get(id=pk)
@@ -62,7 +64,7 @@ def edit_recipe_view(request, pk):
     context = {'form':form}
     return render(request, 'recipes/recipe_form.html', context)
 
-
+@login_required(login_url='login')
 def delete_recipe_view(request, pk):
     recipe = Recipes.objects.get(id=pk)
 

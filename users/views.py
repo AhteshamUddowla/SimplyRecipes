@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .models import Profile
 from .forms import ProfileForm
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 # Create your views here.
@@ -53,7 +54,7 @@ def logout_view(request):
     logout(request)
     return redirect('login')
 
-
+@login_required(login_url='login')
 def account_view(request):
     profile = request.user.profile
     recipes = profile.recipes_set.all()
@@ -61,6 +62,7 @@ def account_view(request):
     context = {'profile':profile, 'recipes':recipes}
     return render(request, 'users/account.html', context)
 
+@login_required(login_url='login')
 def edit_account_view(request, pk):
     profile = request.user.profile
     form = ProfileForm(instance=profile)
