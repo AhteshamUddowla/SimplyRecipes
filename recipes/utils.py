@@ -18,7 +18,7 @@ def searchRecipes(request):
 
 
 def pagination(request, recipes):
-    paginator = Paginator(recipes, 6)
+    paginator = Paginator(recipes, 3)
     page = request.GET.get('page')
 
     try:

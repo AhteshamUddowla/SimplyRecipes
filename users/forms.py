@@ -15,11 +15,12 @@ class CustomUserCreationForm(UserCreationForm):
         }
 
         widgets = {
-            'first_name': forms.TextInput(attrs={'placeholder': 'Enter your name...','autofocus': True}),
-            'username': forms.TextInput(attrs={'placeholder': 'Enter your username...'}),
-            'email': forms.EmailInput(attrs={'placeholder': 'Enter your email...',}),
-            'password1': forms.PasswordInput(attrs={'placeholder': '••••••••••••••••'}),
-            'password2': forms.PasswordInput(attrs={'placeholder': '••••••••••••••••'}),
+              'first_name': forms.TextInput(attrs={'autofocus': True}),
+        #     'first_name': forms.TextInput(attrs={'placeholder': 'Enter your name...','autofocus': True}),
+        #     'username': forms.TextInput(attrs={'placeholder': 'Enter your username...'}),
+        #     'email': forms.EmailInput(attrs={'placeholder': 'Enter your email...',}),
+        #     'password1': forms.PasswordInput(attrs={'placeholder': '••••••••••••••••'}),
+        #     'password2': forms.PasswordInput(attrs={'placeholder': '••••••••••••••••'}),
         }
 
     # If an email address already exist gives an validation error
