@@ -1,14 +1,14 @@
 # SimplyRecipes
 
 ### SignUp Form
-<img width="467" alt="Screenshot 2023-04-26 192300" src="https://user-images.githubusercontent.com/86501763/234590479-db147633-e70a-48dc-a618-887bea9b1b8b.png">
-
+<img width="618" alt="Screenshot 2023-04-28 154836" src="https://user-images.githubusercontent.com/86501763/235115645-11f94d34-4570-4230-a847-8aebc01832f9.png">
 
 ### SignIn Form
-<img width="520" alt="Screenshot 2023-04-26 192300" src="https://user-images.githubusercontent.com/86501763/234591279-90468798-572e-4dbe-ae97-5e1a5c7a8a99.png">
+<img width="587" alt="Screenshot 2023-04-28 154836" src="https://user-images.githubusercontent.com/86501763/235116091-d348e467-a4ef-4f99-9cc6-f0a8d397664e.png">
 
-### All Recipes
-<img width="686" alt="Screenshot 2023-04-26 192300" src="https://user-images.githubusercontent.com/86501763/234591756-0ac11a01-8794-4709-9985-b5502d57984f.png">
+### All Recipes. A user can search and paginate recipes here
+<img width="710" alt="Screenshot 2023-04-28 154836" src="https://user-images.githubusercontent.com/86501763/235116624-64b75a48-3eed-44f9-8bd6-3dc4eb796afc.png">
+<img width="701" alt="Screenshot 2023-04-28 154836" src="https://user-images.githubusercontent.com/86501763/235117293-8b30c742-3733-495e-885f-a3a615db9d57.png">
 
 ### Add Recipe Form
 <img width="446" alt="Screenshot 2023-04-26 192300" src="https://user-images.githubusercontent.com/86501763/234592111-895e195c-50f1-4909-8dcd-1c62d0a963f1.png">
