@@ -6,7 +6,7 @@
 ### SignIn Form
 <img width="612" alt="Screenshot 2023-04-28 154836" src="https://user-images.githubusercontent.com/86501763/235118934-4413fd05-bcb1-4392-8c4f-515be3772b3d.png">
 
-### All Recipes. A user can search and paginate recipes here
+### All Recipes. A user can search and paginate recipes here and every page displays at most 3 recipes
 <img width="710" alt="Screenshot 2023-04-28 154836" src="https://user-images.githubusercontent.com/86501763/235116624-64b75a48-3eed-44f9-8bd6-3dc4eb796afc.png">
 <img width="701" alt="Screenshot 2023-04-28 154836" src="https://user-images.githubusercontent.com/86501763/235117293-8b30c742-3733-495e-885f-a3a615db9d57.png">
 
