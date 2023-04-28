@@ -1,0 +1,56 @@
+
+
+{% if recipes.has_other_pages %}
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+
+      {% if recipes.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{recipes.previous_page_number}}" tabindex="-1" data-page="{{recipes.previous_page_number}}">Previous</a>
+      </li>
+      {% endif %}
+
+      {% for page in custom_range %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{page}}" data-page="{{page}}">{{page}}</a>
+        </li>
+      {% endfor %}
+
+      {% if recipes.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{recipes.next_page_number}}" data-page="{{recipes.next_page_number}}">Next</a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+
+{% endif %}
+
+<script type="text/javascript">
+  // GET SEARCH FORM AND PAGE LINKS
+  let searchForm = document.getElementById('searchForm')
+  let pageLinks = document.getElementsByClassName('page-link')
+
+  //ENSURE SEARCH FORM EXISTS
+  
+  if(searchForm){
+    for(let i=0; i<pageLinks.length; i++)
+    {
+      pageLinks[i].addEventListener('click', function (e) {
+        e.preventDefault()
+        
+        //GET THE DATA ATTRIBUTE
+        let page = this.dataset.page
+        
+        //ADD HIDDEN SEARCH INPUT
+        searchForm.innerHTML += `<input value=${page} name="page" hidden> `
+
+        //SUBMIT FORM
+        searchForm.submit()
+      })
+    }
+  } 
+  
+
+</script>

@@ -1,5 +1,6 @@
 from .models import Recipes, Tag
 from django.db.models import Q
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 def searchRecipes(request):
     search = ''
@@ -14,6 +15,39 @@ def searchRecipes(request):
     )
 
     return recipes, tags, search
+
+
+def pagination(request, recipes):
+    paginator = Paginator(recipes, 6)
+    page = request.GET.get('page')
+
+    try:
+        recipes = paginator.page(page)
+    except PageNotAnInteger:
+        page = 1
+        recipes = paginator.page(page)
+    except EmptyPage:
+        page = paginator.num_pages
+        recipes = paginator.page(page)
+
+    leftIndex = int(page)-2
+
+    if(leftIndex < 1):
+        leftIndex = 1
+
+    rightIndex = int(page)+3
+
+    if(rightIndex > paginator.num_pages):
+        rightIndex = paginator.num_pages+1
+
+    if int(page)>=1 and int(page)<=2 and paginator.num_pages>=5:
+        rightIndex=6
+    if int(page)>paginator.num_pages-2 and paginator.num_pages>=5:
+        leftIndex=paginator.num_pages-4
+
+    custom_range = range(leftIndex, rightIndex)
+
+    return recipes, custom_range
 
 
 def tagCount(request):

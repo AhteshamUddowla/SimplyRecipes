@@ -9,7 +9,7 @@
            
               <a href="{% url 'recipes' %}?search={{tag}}" class="tag">
                 <h5>{{tag}}</h5>
-                <p>{{cn}} recipe</p>
+                <p>{{cn}} recipe{{cn|pluralize:'s'}}</p>
               </a>
             
             <!-- end of single tag -->

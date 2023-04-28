@@ -12,7 +12,7 @@
         <div class="hero-text">
           <h1>simply recipes</h1>
           <h4>no fluff, just recipes</h4>
-          <form action="{% url 'recipes' %}" method="get">
+          <form id="searchForm" action="{% url 'recipes' %}" method="get">
             <input type="text" name="search" placeholder="Search recipes here..." value="{{search}}">
           </form>
         </div>
@@ -48,6 +48,10 @@
       </div>
       <!-- end of recipes list -->
     </section>
+
+    {% include 'pagination.html' %}
+
+    
   </main>
   <!-- end of main -->
 

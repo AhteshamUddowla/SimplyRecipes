@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
 from .models import Recipes, Tag
 from .forms import RecipeForm
-from .utils import searchRecipes, tagCount, tags
+from .utils import searchRecipes, tagCount, tags, pagination
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def recipes(request):
     recipes, tags, search = searchRecipes(request)
-    
-    context = {'recipes': recipes, 'tags':tags, 'search':search}
+    recipes, custom_range = pagination(request, recipes)
+
+    context = {'recipes': recipes, 'tags':tags, 'search':search, 'custom_range':custom_range}
     return render(request, 'recipes/recipes.html', context)
 
 def recipe(request, pk):
